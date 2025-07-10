@@ -6,26 +6,53 @@ import {
   Code2,
   Settings,
   Mail,
-  Snowflake,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
-const navItems = [
-  { icon: <Home size={20} />, label: "Inicio", href: "#espacio" },
-  { icon: <User size={20} />, label: "Sobre mí", href: "#cielo" },
-  { icon: <Settings size={20} />, label: "Habilidades", href: "#tierra" },
-  { icon: <Code2 size={20} />, label: "Proyectos", href: "#mar" },
-  { icon: <Mail size={20} />, label: "Contacto", href: "#cortehielo" },
-  {
-
-    icon: <FaGithub className="text-xl" />,
-    label: "GitHub",
-    href: "https://github.com/DanielaM1293",
-    external: true,
+const translations = {
+  es: {
+    inicio: "Inicio",
+    sobreMi: "Sobre mí",
+    habilidades: "Habilidades",
+    proyectos: "Proyectos",
+    contacto: "Contacto",
+    github: "GitHub",
   },
-];
+  en: {
+    inicio: "Home",
+    sobreMi: "About Me",
+    habilidades: "Skills",
+    proyectos: "Projects",
+    contacto: "Contact",
+    github: "GitHub",
+  },
+  pt: {
+    inicio: "Início",
+    sobreMi: "Sobre mim",
+    habilidades: "Habilidades",
+    proyectos: "Projetos",
+    contacto: "Contato",
+    github: "GitHub",
+  },
+};
 
-const Navbar = () => {
+const Navbar = ({ lang = "es" }) => {
+  const t = translations[lang] || translations.es;
+
+  const navItems = [
+    { icon: <Home size={20} />, label: t.inicio, href: "#espacio" },
+    { icon: <User size={20} />, label: t.sobreMi, href: "#cielo" },
+    { icon: <Settings size={20} />, label: t.habilidades, href: "#tierra" },
+    { icon: <Code2 size={20} />, label: t.proyectos, href: "#mar" },
+    { icon: <Mail size={20} />, label: t.contacto, href: "#cortehielo" },
+    {
+      icon: <FaGithub className="text-xl" />,
+      label: t.github,
+      href: "https://github.com/DanielaM1293",
+      external: true,
+    },
+  ];
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}

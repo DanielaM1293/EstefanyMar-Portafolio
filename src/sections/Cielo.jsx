@@ -9,19 +9,22 @@ const Cielo = ({ lang }) => {
       titulo: "Sobre mí",
       descripcion:
         "Soy Estefany, una exploradora de mundos creativos. Me encanta contar historias visuales, transformar ideas en experiencias y sumergirme en universos llenos de magia, diseño y detalle. ✨",
-      cv: "Descargar CV",
+      cvEsp: "CV en Español",
+      cvEng: "CV en Inglés",
     },
     en: {
       titulo: "About Me",
       descripcion:
         "I'm Estefany, an explorer of creative worlds. I love telling visual stories, turning ideas into experiences, and diving into universes full of magic, design, and detail. ✨",
-      cv: "Download CV",
+      cvEsp: "CV in Spanish",
+      cvEng: "CV in English",
     },
     pt: {
       titulo: "Sobre mim",
       descripcion:
         "Sou Estefany, uma exploradora de mundos criativos. Adoro contar histórias visuais, transformar ideias em experiências e mergulhar em universos cheios de magia, design e detalhes. ✨",
-      cv: "Baixar CV",
+      cvEsp: "CV em Espanhol",
+      cvEng: "CV em Inglês",
     },
   };
 
@@ -85,14 +88,25 @@ const Cielo = ({ lang }) => {
         </h2>
         <p className="text-base md:text-lg font-quicksand">{t.descripcion}</p>
 
-        <a
-          href="/CV-EstefanyMartinez.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-block bg-aurora text-fondo px-6 py-3 rounded-full shadow-lg hover:bg-hover transition transform hover:scale-105 font-quicksand"
-        >
-          {t.cv}
-        </a>
+        {/* Botones de CV */}
+        <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center items-center">
+          <a
+            href="/CV-EstefanyMartinez.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-aurora text-fondo px-6 py-3 rounded-full shadow-lg hover:bg-hover transition transform hover:scale-105 font-quicksand"
+          >
+            📄 {t.cvEsp}
+          </a>
+          <a
+            href="/CV-EstefanyMartinez-English.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-aurora text-fondo px-6 py-3 rounded-full shadow-lg hover:bg-hover transition transform hover:scale-105 font-quicksand"
+          >
+            📄 {t.cvEng}
+          </a>
+        </div>
       </motion.div>
 
       {/* Niebla mágica */}

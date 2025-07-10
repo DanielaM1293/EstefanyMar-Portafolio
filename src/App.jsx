@@ -12,19 +12,21 @@ import LanguageSelector from "./components/LanguageSelector";
 import "./App.css";
 
 function App() {
-  const [lang, setLang] = useState("es"); // ✅ estado correcto
+  const [lang, setLang] = useState("es");
 
   return (
     <div className="relative font-quicksand scroll-smooth bg-[#0C0A12] text-[#F8F5F1]">
-
-      {/* ✅ Selector de idioma REFACTORIZADO */}
+      {/* Selector de idioma */}
       <LanguageSelector lang={lang} setLang={setLang} />
 
-      {/* Navegación + WhatsApp */}
-      <Navbar />
+<div className="scrollbar-thin scrollbar-thumb-aurora scrollbar-track-[#0C0A12]">
+</div>
+
+      {/* Barra de navegación y botón de WhatsApp */}
+<Navbar lang={lang} />
       <BotonWhatsApp />
 
-      {/* Secciones (pasan lang como prop) */}
+      {/* Secciones visuales */}
       <section id="espacio">
         <Espacio lang={lang} />
       </section>

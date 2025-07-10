@@ -106,3 +106,22 @@ body {
     animation: particle 1s ease-out forwards;
   }
 }
+/* Scroll mágico personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0A12;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #E8A9BE;
+  border-radius: 8px;
+  border: 2px solid #0C0A12;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #C3B2E4;
+}
