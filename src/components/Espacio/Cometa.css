@@ -1,0 +1,78 @@
+.cometa-wrapper {
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+}
+
+.cometa-cuerpo {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-45deg);
+}
+
+.cometa-nucleo {
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #f5e6b3, #e8a9be);
+  border-radius: 9999px;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 10;
+  box-shadow: 0 0 10px #f5e6b3, 0 0 25px #e8a9beaa;
+}
+
+.cometa-cola {
+  width: 40px;
+  height: 8px;
+  background: linear-gradient(to left, #e8a9beaa, #f5e6b366, transparent);
+  border-radius: 9999px;
+  position: absolute;
+  top: 16px;
+  left: -30px;
+  z-index: 1;
+  filter: blur(2px);
+}
+
+/* Partículas flotantes */
+.cometa-particulas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  pointer-events: none;
+}
+
+.cometa-particula {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #f8f5f1;
+  border-radius: 9999px;
+  opacity: 0.7;
+  animation: flotarParticula 4s infinite ease-in-out;
+}
+
+.cometa-particula:nth-child(odd) {
+  background: #e8a9be;
+}
+.cometa-particula:nth-child(even) {
+  background: #f5e6b3;
+}
+
+@keyframes flotarParticula {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(10px, -10px) scale(1.3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(20px, -20px) scale(0.5);
+    opacity: 0;
+  }
+}

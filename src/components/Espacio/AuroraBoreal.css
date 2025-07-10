@@ -1,0 +1,32 @@
+.aurora-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aurora-layer {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 20%, #c3b2e4aa 0%, transparent 70%),
+              radial-gradient(ellipse at 30% 60%, #e8a9be88 0%, transparent 80%);
+  animation: floatAurora 20s ease-in-out infinite alternate;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+@keyframes floatAurora {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) translateX(10px) scale(1.03);
+  }
+  100% {
+    transform: translateY(-50px) translateX(-10px) scale(1.05);
+  }
+}

@@ -1,0 +1,33 @@
+.aurora-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4; /* Debajo del sistema solar pero encima del fondo */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aurora {
+  position: absolute;
+  top: 0;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(ellipse at top, rgba(195,178,228,0.3), transparent 70%),
+              radial-gradient(ellipse at bottom, rgba(189,227,208,0.2), transparent 70%);
+  animation: auroraMove 12s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  transform: rotate(-20deg);
+  filter: blur(100px);
+}
+
+@keyframes auroraMove {
+  0% {
+    transform: translate(-10%, -10%) scale(1) rotate(-20deg);
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1.1) rotate(-25deg);
+  }
+}
