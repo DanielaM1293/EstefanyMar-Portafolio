@@ -26,22 +26,24 @@ const CarruselMagico = () => {
   };
 
   return (
-    <div className="absolute inset-0 z-0 w-full h-full">
-      <Slider {...settings}>
-        {imagenes.map((src, i) => (
-          <div key={i} className="w-full h-full">
-            <img
-              src={src}
-              alt={`Slide ${i}`}
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
-        ))}
-      </Slider>
+<div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
+  <Slider {...settings}>
+    {imagenes.map((src, i) => (
+      <div key={i} className="w-full h-full">
+        <img
+          src={src}
+          alt={`Slide ${i}`}
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+    ))}
+  </Slider>
 
-      {/* Filtro oscuro encima para contraste */}
-      <div className="absolute inset-0 bg-[#0C0A12]/60 backdrop-blur-sm pointer-events-none" />
-    </div>
+  {/* Filtro oscuro encima */}
+  <div className="absolute inset-0 bg-[#0C0A12]/60 backdrop-blur-sm pointer-events-none" />
+</div>
+
+
   );
 };
 

@@ -7,3 +7,6 @@
 body {
   font-family: 'Quicksand', sans-serif;
 }
+.slick-slide > div {
+  height: 100%;
+}

@@ -8,8 +8,12 @@ import CorteHielo from "./sections/CorteHielo";
 import Navbar from "./components/Navbar";
 import BotonWhatsApp from "./components/BotonWhatsApp";
 import LanguageSelector from "./components/LanguageSelector";
-
+import Seo from "./components/Seo";
+import MunequitoScroll from "./components/MunequitoScroll";
+import CursorMagico from "./components/CursorMagico";
 import "./App.css";
+
+import Preloader from "./components/Preloader";
 
 function App() {
   const [lang, setLang] = useState("es");
@@ -21,6 +25,13 @@ function App() {
 
 <div className="scrollbar-thin scrollbar-thumb-aurora scrollbar-track-[#0C0A12]">
 </div>
+<MunequitoScroll />
+<Preloader />
+<CursorMagico />
+    <Seo
+        title="Estefany Mar | Frontend Developer"
+        description="Portafolio mágico de Estefany Mar"
+      />
 
       {/* Barra de navegación y botón de WhatsApp */}
 <Navbar lang={lang} />

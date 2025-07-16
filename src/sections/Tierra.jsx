@@ -27,10 +27,12 @@ const Tierra = ({ lang }) => {
   const t = translations[lang] || translations.es;
 
   return (
-    <section
-      id="tierra"
-      className="relative w-full min-h-screen overflow-hidden text-marfil flex flex-col items-center text-center bg-[#0C0A12] py-16 px-6"
-    >
+<section
+  id="tierra"
+  className="relative w-full h-screen sm:min-h-screen overflow-hidden text-marfil flex flex-col items-center text-center bg-[#0C0A12] py-16 px-6"
+>
+
+
       <CarruselMagico />
 
       {/* 🌫️ Capa mágica de mezcla */}
