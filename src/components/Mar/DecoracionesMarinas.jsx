@@ -24,8 +24,18 @@ const decoraciones = [
 {
   src: "/assets/totoro.png",
   alt: "Totoro",
-  className: "absolute right-[2%] sm:right-[4%] md:right-[6%] lg:right-[8%] bottom-[-2%] sm:bottom-[-4%] md:bottom-[-6%] lg:bottom-[-8%] w-32 sm:w-40 md:w-48 lg:w-56", // ← opción B ejemplo
-},
+  className: `
+    absolute
+    right-[6%] sm:right-[10%] md:right-[12%] lg:right-[14%]
+    top-[45%] sm:top-[65%] md:top-[60%] lg:top-[60%]
+    w-32 sm:w-40 md:w-48 lg:w-56
+    z-40
+    pointer-events-none
+  `,
+
+}
+
+,
 
 {
   src: "/assets/chihirofantasma.png",

@@ -1,4 +1,3 @@
-// src/components/MunequitoScroll.jsx
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 
@@ -9,42 +8,79 @@ const MunequitoScroll = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 3000], [0, 1200]);
 
-  const [leftSide, setLeftSide] = useState(true); // true = izquierda
+  const [leftSide, setLeftSide] = useState(true);
   const sectionIndex = useRef(0);
 
-  /* 1️⃣  Animación de caminar continua */
-  useEffect(() => {
+  // Animación base de caminar
+  const startWalking = (side = true) => {
     controls.start({
       x: [0, 6, 0, -6, 0],
+      scaleX: side ? -1 : 1,
       transition: { duration: 2, repeat: Infinity, ease: "easeInOut" },
     });
-  }, [controls]);
+  };
 
-  /* 2️⃣  Observer para salto + cambio de lado */
   useEffect(() => {
-    const io = new IntersectionObserver(
+    startWalking(leftSide);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const idx = IDS.indexOf(entry.target.id);
-          if (entry.isIntersecting && idx !== sectionIndex.current) {
-            sectionIndex.current = idx;
-            setLeftSide(idx % 2 === 0); // par → izquierda, impar → derecha
-            // salto
-            controls.start({
-              y: [-24, 0],
-              transition: { duration: 0.45, ease: "easeOut" },
-            });
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const idx = IDS.indexOf(id);
+
+            if (idx !== sectionIndex.current) {
+              sectionIndex.current = idx;
+              const isLeft = idx % 2 === 0;
+              setLeftSide(isLeft);
+
+              // Salta siempre
+              controls.start({
+                y: [-24, 0],
+                scaleX: isLeft ? -1 : 1,
+                transition: { duration: 0.45, ease: "easeOut" },
+              });
+
+              // Animaciones especiales por sección
+              if (id === "mar") {
+                controls.start({
+                  y: [0, -6, 0, 6, 0],
+                  scaleX: isLeft ? -1 : 1,
+                  transition: { duration: 2, ease: "easeInOut" },
+                });
+              } else if (id === "inframundo") {
+                controls.start({
+                  rotate: [0, -5, 5, -3, 3, 0],
+                  scaleX: isLeft ? -1 : 1,
+                  transition: { duration: 0.8, ease: "easeInOut" },
+                });
+              } else if (id === "cortehielo") {
+                controls.start({
+                  x: [0, 10, -10, 10, -10, 0],
+                  scaleX: isLeft ? -1 : 1,
+                  transition: { duration: 2, ease: "easeInOut" },
+                });
+              } else {
+                startWalking(isLeft);
+              }
+            }
           }
         });
       },
-      { threshold: 0.55 }
+      {
+        threshold: 0.4,
+      }
     );
 
     IDS.forEach((id) => {
       const el = document.getElementById(id);
-      if (el) io.observe(el);
+      if (el) observer.observe(el);
     });
-    return () => io.disconnect(); // ✅ solo cleanup
+
+    return () => observer.disconnect();
   }, [controls]);
 
   return (

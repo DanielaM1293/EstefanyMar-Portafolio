@@ -2,12 +2,14 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   Home,
-  User,
   Code2,
   Settings,
   Mail,
+  MessageCircleHeart,
+  Sparkles,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const translations = {
   es: {
@@ -17,6 +19,7 @@ const translations = {
     proyectos: "Proyectos",
     contacto: "Contacto",
     github: "GitHub",
+    testimonios: "Testimonios",
   },
   en: {
     inicio: "Home",
@@ -25,6 +28,7 @@ const translations = {
     proyectos: "Projects",
     contacto: "Contact",
     github: "GitHub",
+    testimonios: "Testimonials",
   },
   pt: {
     inicio: "Início",
@@ -33,6 +37,7 @@ const translations = {
     proyectos: "Projetos",
     contacto: "Contato",
     github: "GitHub",
+    testimonios: "Depoimentos",
   },
 };
 
@@ -41,10 +46,16 @@ const Navbar = ({ lang = "es" }) => {
 
   const navItems = [
     { icon: <Home size={20} />, label: t.inicio, href: "#espacio" },
-    { icon: <User size={20} />, label: t.sobreMi, href: "#cielo" },
+    { icon: <Sparkles size={20} />, label: t.sobreMi, href: "#cielo" },
     { icon: <Settings size={20} />, label: t.habilidades, href: "#tierra" },
     { icon: <Code2 size={20} />, label: t.proyectos, href: "#mar" },
     { icon: <Mail size={20} />, label: t.contacto, href: "#cortehielo" },
+    {
+      icon: <MessageCircleHeart size={20} />,
+      label: t.testimonios,
+      href: "/testimonios",
+      external: false,
+    },
     {
       icon: <FaGithub className="text-xl" />,
       label: t.github,
@@ -61,26 +72,68 @@ const Navbar = ({ lang = "es" }) => {
       className="fixed top-4 inset-x-0 z-50 flex justify-center px-4"
     >
       <div className="flex gap-3 items-center bg-[#0C0A12]/80 border border-[#8699C7] rounded-full backdrop-blur-md shadow-lg py-2 px-4">
-        {navItems.map(({ icon, label, href, external }, index) => (
-          <motion.a
-            key={index}
-            href={href}
-            title={label}
-            target={external ? "_blank" : "_self"}
-            rel={external ? "noopener noreferrer" : undefined}
-            whileHover={{ y: -6, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="group w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#E8A9BE] hover:bg-[#C3B2E4] transition-colors duration-300 relative"
-          >
-            {React.cloneElement(icon, {
-              className:
-                "text-[#F8F5F1] group-hover:text-[#0C0A12] transition-colors",
-            })}
-            <span className="absolute opacity-0 group-hover:opacity-100 text-xs mt-12 text-[#F8F5F1] transition-opacity whitespace-nowrap">
-              {label}
-            </span>
-          </motion.a>
-        ))}
+        {navItems.map(({ icon, label, href, external }, index) =>
+          external ? (
+            // 🌍 Enlace externo
+            <motion.a
+              key={index}
+              href={href}
+              title={label}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -6, scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="group w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#E8A9BE] hover:bg-[#C3B2E4] transition-colors duration-300 relative"
+            >
+              {React.cloneElement(icon, {
+                className:
+                  "text-[#F8F5F1] group-hover:text-[#0C0A12] transition-colors",
+              })}
+              <span className="absolute opacity-0 group-hover:opacity-100 text-xs mt-12 text-[#F8F5F1] transition-opacity whitespace-nowrap">
+                {label}
+              </span>
+            </motion.a>
+          ) : (
+            // 🌀 Enlace interno
+            <motion.div
+              key={index}
+              whileHover={{ y: -6, scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {href.startsWith("#") ? (
+                // 🔗 Anclas internas
+                <a
+                  href={href}
+                  title={label}
+                  className="group w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#E8A9BE] hover:bg-[#C3B2E4] transition-colors duration-300 relative"
+                >
+                  {React.cloneElement(icon, {
+                    className:
+                      "text-[#F8F5F1] group-hover:text-[#0C0A12] transition-colors",
+                  })}
+                  <span className="absolute opacity-0 group-hover:opacity-100 text-xs mt-12 text-[#F8F5F1] transition-opacity whitespace-nowrap">
+                    {label}
+                  </span>
+                </a>
+              ) : (
+                // 🧭 Rutas con React Router
+                <Link
+                  to={href}
+                  title={label}
+                  className="group w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-[#E8A9BE] hover:bg-[#C3B2E4] transition-colors duration-300 relative"
+                >
+                  {React.cloneElement(icon, {
+                    className:
+                      "text-[#F8F5F1] group-hover:text-[#0C0A12] transition-colors",
+                  })}
+                  <span className="absolute opacity-0 group-hover:opacity-100 text-xs mt-12 text-[#F8F5F1] transition-opacity whitespace-nowrap">
+                    {label}
+                  </span>
+                </Link>
+              )}
+            </motion.div>
+          )
+        )}
       </div>
     </motion.nav>
   );
