@@ -4,7 +4,6 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-
   theme: {
     extend: {
       /* 🎨 Paleta mágica */
@@ -25,10 +24,10 @@ module.exports = {
 
       /* ✨ Keyframes mágicos */
       keyframes: {
-         spinSlow: {
-    "0%": { transform: "rotate(0deg)" },
-    "100%": { transform: "rotate(360deg)" },
-  },
+        spinSlow: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
         gradientX: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
           "50%":      { backgroundPosition: "100% 50%" },
@@ -83,15 +82,19 @@ module.exports = {
           "0%":   { transform: "translateY(0)", opacity: "1" },
           "100%": { transform: "translateY(-40px)", opacity: "0" },
         },
-         flotarTooltip: {
-    "0%, 100%": { transform: "translateY(0px)" },
-    "50%": { transform: "translateY(-5px)" },
-  },
-  
+        flotarTooltip: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
 
       /* ⚙️ Alias de animaciones */
       animation: {
+        float: "float 4s ease-in-out infinite",
         "gradient-x":    "gradientX 6s ease-in-out infinite",
         sparkles:        "sparkles 3s ease-in-out infinite",
         flotarSuave:     "flotarSuave 3s ease-in-out infinite",
@@ -103,12 +106,11 @@ module.exports = {
         fadeInSlow:      "fadeInSlow 8s ease-in-out forwards",
         flotarBurbujas:  "flotarBurbujas 6s ease-in-out infinite",
         girarBurbuja:    "girarBurbuja 60s linear infinite",
-          flotarTooltip: "flotarTooltip 6s ease-in-out infinite",
-        spinSuperSlow: 'spin 90s linear infinite',
-        spinSlow: "spinSlow 40s linear infinite",   // 40 s → muy suave
+        flotarTooltip:   "flotarTooltip 6s ease-in-out infinite",
+        spinSuperSlow:   "spin 90s linear infinite",
+        spinSlow:        "spinSlow 40s linear infinite",
       },
     },
   },
-
   plugins: [],
 };
