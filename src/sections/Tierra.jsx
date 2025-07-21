@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HadasSkills from "../components/Tierra/HadasSkills";
-import Luciernagas from "../components/Tierra/Luciernagas";
-import RayosMagicos from "../components/Tierra/RayosMagicos";
-import CarruselMagico from "../components/Tierra/CarruselMagico";
+import HadasSkills from "@/components/Tierra/HadasSkills";
+import Luciernagas from "@/components/Tierra/Luciernagas";
+import RayosMagicos from "@/components/Tierra/RayosMagicos";
+import CarruselMagico from "@/components/Tierra/CarruselMagico";
 
 const Tierra = ({ lang }) => {
   const translations = {

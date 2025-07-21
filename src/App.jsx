@@ -1,25 +1,32 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Espacio from "./sections/Espacio";
-import Cielo from "./sections/Cielo";
-import Tierra from "./sections/Tierra";
-import Mar from "./sections/Mar";
-import Inframundo from "./sections/Inframundo";
-import CorteHielo from "./sections/CorteHielo";
-import Navbar from "./components/Navbar";
-import BotonWhatsApp from "./components/BotonWhatsApp";
-import LanguageSelector from "./components/LanguageSelector";
-import Seo from "./components/Seo";
-import MunequitoScroll from "./components/MunequitoScroll";
-import CursorMagico from "./components/CursorMagico";
-import Preloader from "./components/Preloader";
-import Testimonios from "./pages/Testimonios";
+import {
+  Navbar,
+  BotonWhatsApp,
+  LanguageSelector,
+  Seo,
+  MunequitoScroll,
+  CursorMagico,
+  Preloader,
+} from "@/components";
+
+import Testimonios from "@/pages/Testimonios";
+import { usePreloadImages, useTranslate } from "@/hooks";
+
+import Espacio from "@/sections/Espacio";
+import Cielo from "@/sections/Cielo";
+import Tierra from "@/sections/Tierra";
+import Mar from "@/sections/Mar";
+import Inframundo from "@/sections/Inframundo";
+import CorteHielo from "@/sections/CorteHielo";
 
 import "./App.css";
 
 function App() {
+  usePreloadImages();
   const [lang, setLang] = useState("es");
+  const t = useTranslate(lang); // Puedes usarlo si necesitas traducir en App.jsx
 
   return (
     <div className="relative font-quicksand scroll-smooth bg-[#0C0A12] text-[#F8F5F1]">
@@ -34,7 +41,6 @@ function App() {
       />
 
       <Routes>
-        {/* Ruta principal con todas las secciones mágicas */}
         <Route
           path="/"
           element={
@@ -62,8 +68,6 @@ function App() {
             </>
           }
         />
-
-        {/* Ruta de Testimonios Sanrio */}
         <Route path="/testimonios" element={<Testimonios lang={lang} />} />
       </Routes>
     </div>

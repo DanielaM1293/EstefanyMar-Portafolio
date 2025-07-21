@@ -14,13 +14,13 @@
   top: 0;
   width: 150%;
   height: 150%;
-  background: radial-gradient(ellipse at top, rgba(195,178,228,0.3), transparent 70%),
-              radial-gradient(ellipse at bottom, rgba(189,227,208,0.2), transparent 70%);
+  background: radial-gradient(ellipse at top, rgba(140, 105, 190, 0.2), transparent 70%),
+              radial-gradient(ellipse at bottom, rgba(100, 180, 160, 0.15), transparent 70%);
   animation: auroraMove 12s ease-in-out infinite alternate;
   mix-blend-mode: screen;
-  opacity: 0.6;
+  opacity: 0.4; /* menos opaco para que no opaque estrellas */
   transform: rotate(-20deg);
-  filter: blur(100px);
+  filter: blur(60px); /* menos blur = más control y menos niebla blanca */
 }
 
 @keyframes auroraMove {

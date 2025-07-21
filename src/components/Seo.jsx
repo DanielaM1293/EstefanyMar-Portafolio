@@ -1,5 +1,5 @@
 // src/components/Seo.jsx
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export default function Seo({ title, description, lang = "es" }) {
   return (
@@ -7,7 +7,7 @@ export default function Seo({ title, description, lang = "es" }) {
       <html lang={lang} />
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="author" content="Estefany Mar" />
+      <meta name="author" content="Estefany Mar" />
 
       {/* OpenGraph */}
       <meta property="og:title" content={title} />

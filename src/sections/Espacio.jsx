@@ -40,12 +40,10 @@ const Espacio = ({ lang }) => {
           y: ["0vh", "20vh", "30vh", "50vh"],
         }}
       />
-
       <AuroraBoreal />
       <EstrellasFugaces />
       <SistemaSolar />
-
-      {/* Texto y contenido principal */}
+       {/* Texto y contenido principal */}
       <div className="z-20 relative">
         <h1 className="text-4xl md:text-6xl font-bold font-fraunces animate-fadeInDown">
           {t("saludo")}

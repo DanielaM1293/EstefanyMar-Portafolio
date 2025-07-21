@@ -1,9 +1,10 @@
-/* src/sections/Cielo.jsx */
+// src/sections/Cielo.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import Nubes from "../components/Cielo/Nubes";
-import EstrellaDeHowl from "../components/Cielo/EstrellaDeHowl";
+
+import Nubes from "@/components/Cielo/Nubes";
+import EstrellaDeHowl from "@/components/Cielo/EstrellaDeHowl";
 
 const Cielo = ({ lang }) => {
   /* Traducciones */
@@ -39,16 +40,20 @@ const Cielo = ({ lang }) => {
     "relative flex items-center gap-2 px-6 py-3 rounded-full text-[#0C0A12] font-quicksand font-semibold group focus-visible:ring-2 focus-visible:ring-luciernaga transition-transform";
 
   return (
-    <section
-      id="cielo"
-      className="relative w-full min-h-screen overflow-hidden text-marfil flex flex-col justify-center items-center text-center"
-      style={{
-        backgroundImage:
-          "url('https://i.pinimg.com/originals/75/34/e0/7534e0ae3575e54341426fe0fd91b392.gif')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+<section
+  id="cielo"
+  className="relative w-full min-h-screen overflow-hidden text-marfil flex flex-col justify-center items-center text-center"
+>
+  {/* Video de fondo en lugar del gif */}
+  <video
+    src="/assets/fondocielo.mp4"
+    className="absolute inset-0 w-full h-full object-cover opacity-100 z-0"
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="none"
+  />
       {/* Capa de oscurecimiento */}
       <div className="absolute inset-0 bg-[#0C0A12]/40 mix-blend-overlay backdrop-blur-[2px] pointer-events-none" />
 

@@ -1,9 +1,11 @@
+// src/sections/Inframundo.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import Niebla from "../components/Inframundo/Niebla";
-import Murcielagos from "../components/Inframundo/Murcielagos";
-import Arañas from "../components/Inframundo/Arañas";
-import Extras from "../components/Inframundo/Extras";
+
+import Niebla from "@/components/Inframundo/Niebla";
+import Murcielagos from "@/components/Inframundo/Murcielagos";
+import Arañas from "@/components/Inframundo/Arañas";
+import Extras from "@/components/Inframundo/Extras";
 
 const Inframundo = () => {
   return (
@@ -11,15 +13,17 @@ const Inframundo = () => {
       id="inframundo"
 className="relative w-full min-h-[35vh] sm:min-h-[40vh] md:min-h-[45vh] lg:min-h-[50vh] xl:min-h-[55vh] bg-[#0A0A0C] overflow-hidden text-marfil"
     >
-      {/* Fondo de video tipo collage */}
-      <video
-        src="/assets/fondodefinitivo.mp4"
-        className="absolute inset-0 w-full h-full object-cover drop-shadow-[0_0_90px_#0A0A0C] opacity-20 pointer-events-none"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+{/* Fondo de video tipo collage */}
+<video
+  src="/assets/fondodefinitivo.mp4"
+  className="absolute inset-0 w-full h-full object-cover drop-shadow-[0_0_90px_#0A0A0C] opacity-20 pointer-events-none"
+  autoPlay
+  loop
+  muted
+  playsInline
+  preload="none" // ❗ Mejora tiempos de carga inicial
+/>
+
 
       {/* Capas visuales burtonescas */}
       <Niebla />

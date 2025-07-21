@@ -1,9 +1,10 @@
+// src/sections/Mar.jsx
 import React from "react";
 import { motion } from "framer-motion";
-import DecoracionesMarinas from "../components/Mar/DecoracionesMarinas";
-import BurbujaTapaMarca from "../components/Mar/BurbujaTapaMarca";
 
-// Traducciones actualizadas (incluye Grupo Almanza)
+import DecoracionesMarinas from "@/components/Mar/DecoracionesMarinas";
+import BurbujaTapaMarca from "@/components/Mar/BurbujaTapaMarca";
+
 const traducciones = {
   es: {
     titulo: "Mis Proyectos",
@@ -63,11 +64,19 @@ const Mar = ({ lang }) => {
       id="mar"
       className="relative w-full min-h-screen overflow-hidden bg-[#0C1A2C] text-marfil flex flex-col items-center justify-center px-4 pt-16"
     >
-      {/* Video de fondo */}
-      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover z-0">
-        <source src="/assets/videoonyo.mp4" type="video/mp4" />
-        Tu navegador no soporta el video.
-      </video>
+{/* Video de fondo */}
+<video
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="none" // 👈 Esto evita que cargue antes de que sea necesario
+  className="absolute inset-0 w-full h-full object-cover z-0"
+>
+  <source src="/assets/videoonyo.mp4" type="video/mp4" />
+  Tu navegador no soporta el video.
+</video>
+
 
       {/* Capa oscura */}
       <div className="absolute inset-0 bg-[#0C1A2C]/50 backdrop-blur-sm z-10" />
