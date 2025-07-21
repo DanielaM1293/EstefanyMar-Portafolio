@@ -1,17 +1,18 @@
-// src/sections/CorteDeHielo.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-
-import { ParticulasMagicas } from "@/components";
+import ParticulasMagicas from "../components/CorteDeHielo/ParticulasMagicas";
 
 const CorteDeHielo = ({ lang }) => {
-  const [showParticles, setShowParticles] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  const [showParticles, setShowParticles] = useState(false);
+  const [showGlow, setShowGlow] = useState(false);
+  const [buttonGlowing, setButtonGlowing] = useState(false);
 
   const translations = {
     es: {
@@ -45,7 +46,6 @@ const CorteDeHielo = ({ lang }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowParticles(true);
 
     try {
       await fetch("https://formspree.io/f/xeokbydj", {
@@ -56,12 +56,23 @@ const CorteDeHielo = ({ lang }) => {
         },
         body: JSON.stringify(formData),
       });
+
       setFormData({ name: "", email: "", message: "" });
+
+      // Activar animaciones mágicas ✨
+      setShowParticles(true);
+      setShowGlow(true);
+      setButtonGlowing(true);
+
+      // Detenerlas después de 2s
+      setTimeout(() => {
+        setShowParticles(false);
+        setShowGlow(false);
+        setButtonGlowing(false);
+      }, 2000);
     } catch (error) {
       console.error("Error al enviar:", error);
     }
-
-    setTimeout(() => setShowParticles(false), 1000);
   };
 
   return (
@@ -69,22 +80,21 @@ const CorteDeHielo = ({ lang }) => {
       id="contacto"
       className="relative w-full min-h-screen bg-[#0A0A0C] text-white overflow-hidden flex items-center justify-center px-4"
     >
-      {/* Fondo con imagen helada */}
       <img
         src="/assets/fondocontacto.png"
         alt="Cueva helada"
         className="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-0"
       />
 
-      {/* Copos + partículas */}
       <ParticulasMagicas showParticles={showParticles} />
 
-      {/* Formulario */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="relative z-20 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl p-6 md:p-10 w-full max-w-xl"
+        className={`relative z-20 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl p-6 md:p-10 w-full max-w-xl transition-all duration-500 ${
+          showGlow ? "animate-form-glow" : ""
+        }`}
       >
         <h2 className="text-3xl md:text-4xl font-bold font-fraunces text-center text-white mb-6 animate-glow">
           {t.titulo}
@@ -118,36 +128,27 @@ const CorteDeHielo = ({ lang }) => {
             required
             className="bg-white/10 placeholder-white text-white p-3 rounded-md border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-200 resize-none"
           />
+
           <motion.button
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
-            className="bg-blue-200/20 text-white font-bold py-3 rounded-md border border-blue-100/20 hover:bg-blue-100/10 transition"
             type="submit"
+            className={`bg-blue-200/20 text-white font-bold py-3 rounded-md border border-blue-100/20 transition ${
+              buttonGlowing ? "animate-button-glow" : "hover:bg-blue-100/10"
+            }`}
           >
             {t.enviar}
           </motion.button>
         </form>
 
-        {/* Redes sociales visibles siempre */}
         <div className="mt-6 flex justify-center gap-6 text-2xl text-white">
-          <a
-            href="https://github.com/DanielaM1293"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://github.com/DanielaM1293" target="_blank" rel="noopener noreferrer">
             <FaGithub className="hover:text-blue-300 transition" />
           </a>
-          <a
-            href="https://www.linkedin.com/in/estefany-daniela-mart%C3%ADnez-ni%C3%B1o-b0832b209/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.linkedin.com/in/estefany-daniela-mart%C3%ADnez-ni%C3%B1o-b0832b209/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin className="hover:text-blue-300 transition" />
           </a>
-          <a
-            href="mailto:estefanydanielamartineznino@gmail.com"
-            className="text-white"
-          >
+          <a href="mailto:estefanydanielamartineznino@gmail.com">
             <FaEnvelope className="hover:text-blue-300 transition" />
           </a>
         </div>

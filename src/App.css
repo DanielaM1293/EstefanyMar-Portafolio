@@ -162,6 +162,67 @@ body {
   0%   { transform: translateY(0) scale(1); opacity: 1; }
   100% { transform: translateY(-60px) scale(0.4); opacity: 0; }
 }
+@keyframes snow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+@layer utilities {
+  .animate-snow {
+    animation: snow 60s linear infinite;
+  }
+
+  .animate-snow-90 {
+    animation: snow 90s linear infinite;
+  }
+
+  .animate-snow-120 {
+    animation: snow 120s linear infinite;
+  }
+}
+
+@keyframes formGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(173, 216, 230, 0);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(173, 216, 230, 0.6),
+                0 0 60px rgba(200, 250, 255, 0.5),
+                0 0 90px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(173, 216, 230, 0);
+  }
+}
+
+@layer utilities {
+  .animate-form-glow {
+    animation: formGlow 1.5s ease-out forwards;
+  }
+}
+@keyframes buttonGlow {
+  0% {
+    background-color: rgba(191, 219, 254, 0.2);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px #bae6fd, 0 0 25px #e0f2fe;
+  }
+  100% {
+    background-color: rgba(191, 219, 254, 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-button-glow {
+    animation: buttonGlow 1.5s ease-out forwards;
+  }
+}
+
 
 /* ─────────────── 📱 Media Query opcional para móviles ─────────────── */
 @media (max-width: 640px) {
