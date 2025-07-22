@@ -76,9 +76,9 @@ const Navbar = ({ lang = "es" }) => {
           flex gap-3
           overflow-x-auto no-scrollbar
           bg-[#0C0A12]/80 border border-[#8699C7] rounded-full backdrop-blur-md shadow-lg
-          py-2 px-4
-          sm:gap-4 sm:py-3 sm:px-6
-          md:gap-6 md:py-4 md:px-8
+          py-1 px-3
+          sm:gap-3 sm:py-2 sm:px-5
+          md:gap-4 md:py-2 md:px-6
           max-w-screen-lg
           mx-auto
         "
@@ -96,13 +96,13 @@ const Navbar = ({ lang = "es" }) => {
               className="
                 group
                 flex-shrink-0
-                w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12
+                w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10
                 flex items-center justify-center rounded-full
                 bg-[#E8A9BE] hover:bg-[#C3B2E4] transition-colors duration-300 relative
               "
             >
               {React.cloneElement(icon, {
-                size: 16,
+                size: 18,
                 className:
                   "text-[#F8F5F1] group-hover:text-[#0C0A12] transition-colors",
               })}
@@ -123,13 +123,13 @@ const Navbar = ({ lang = "es" }) => {
                   title={label}
                   className="
                     group
-                    w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12
+                    w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10
                     flex items-center justify-center rounded-full
                     bg-[#E8A9BE] hover:bg-[#C3B2E4] transition-colors duration-300 relative
                   "
                 >
                   {React.cloneElement(icon, {
-                    size: 16,
+                    size: 18,
                     className:
                       "text-[#F8F5F1] group-hover:text-[#0C0A12] transition-colors",
                   })}
@@ -143,13 +143,13 @@ const Navbar = ({ lang = "es" }) => {
                   title={label}
                   className="
                     group
-                    w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12
+                    w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10
                     flex items-center justify-center rounded-full
                     bg-[#E8A9BE] hover:bg-[#C3B2E4] transition-colors duration-300 relative
                   "
                 >
                   {React.cloneElement(icon, {
-                    size: 16,
+                    size: 18,
                     className:
                       "text-[#F8F5F1] group-hover:text-[#0C0A12] transition-colors",
                   })}
