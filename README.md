@@ -34,7 +34,7 @@ I enjoy combining design and code to build clear, functional, and visually memor
 |---|---|---|---|
 | **Mi Mundo** | Productivity web app (CS50x final project): finances, agenda, Kanban board, and course tracking, with dashboards, dark mode, English/Spanish, and secure login | Flask, SQLite, Tailwind, Chart.js | [Demo](https://mimundo-y5rd.onrender.com) · [Code](https://github.com/DanielaM1293/MiMundo) |
 | **Martínez Iure** | Complete website for a law office: responsive landing page, contact form, SEO, and legal pages | HTML, CSS, Tailwind, JavaScript | [Live](https://martineziure.netlify.app/) · [Code](https://github.com/DanielaM1293/martineziure) |
-| **Pixials News** | Tech news platform with favorites and a small CRUD | Angular, Tailwind | [Code](https://github.com/DanielaM1293/Pixials-News-Angular) |
+| **Pixials News** | Tech news platform with favorites and a small CRUD | Angular, Tailwind | [Demo](https://pixials-news.netlify.app/) · [Code](https://github.com/DanielaM1293/Pixials-News-Angular) |
 | **NFL Draft prediction** | Classification model (drafted vs. not drafted) evaluated with ROC-AUC | Python, Pandas, scikit-learn | [Code](https://github.com/DanielaM1293/gci-world-2026) |
 | **Creative portfolio** | This site: an immersive, themed experience (space, sky, sea, earth, ice) | React, Vite, Tailwind, Framer Motion | [Live](https://estefanymar.netlify.app) · [Code](https://github.com/DanielaM1293/EstefanyMar-Portafolio) |
 
@@ -118,7 +118,7 @@ Me gusta combinar diseño y código para crear interfaces claras, funcionales y 
 
 - **Mi Mundo:** app de productividad (finanzas, agenda, Kanban y cursos) con Flask y SQLite. [Demo](https://mimundo-y5rd.onrender.com) · [Código](https://github.com/DanielaM1293/MiMundo)
 - **Martínez Iure:** sitio completo para un consultorio jurídico. [Sitio](https://martineziure.netlify.app/) · [Código](https://github.com/DanielaM1293/martineziure)
-- **Pixials News:** plataforma de noticias de tecnología en Angular. [Código](https://github.com/DanielaM1293/Pixials-News-Angular)
+- **Pixials News:** plataforma de noticias de tecnología en Angular. [Demo](https://pixials-news.netlify.app/) · [Código](https://github.com/DanielaM1293/Pixials-News-Angular)
 - **Predicción NFL Draft:** modelo de clasificación evaluado con ROC-AUC. [Código](https://github.com/DanielaM1293/gci-world-2026)
 - **Portafolio creativo:** esta experiencia visual por escenas (espacio, cielo, mar, tierra y hielo).
 
