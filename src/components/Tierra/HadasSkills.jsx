@@ -2,17 +2,75 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ParticulasMagicas from "./ParticulasMagicas";
+import {
+  SiHtml5,
+  SiAngular,
+  SiPython,
+  SiFlask,
+  SiNodedotjs,
+  SiSqlite,
+  SiPandas,
+  SiScikitlearn,
+  SiGit,
+  SiJavascript,
+  SiReact,
+  SiTailwindcss,
+  SiFigma,
+  SiAdobephotoshop,
+  SiNotion,
+  SiTrello,
+  SiVirtualbox,
+} from "react-icons/si";
+import { FaMicrosoft, FaLanguage } from "react-icons/fa";
 
 // 🌍 Traducciones por idioma
 const traducciones = {
   es: {
     categorias: {
       tecnologias: "🛠️ Tecnologías",
+      backend: "🧠 Backend y datos",
+      herramientas: "🧰 Herramientas",
       diseno: "🎨 Diseño y UX",
       productividad: "📋 Productividad",
       extras: "✨ Extras mágicos",
     },
     habilidades: {
+      html: {
+        nombre: "HTML y CSS",
+        descripcion: "Estructura y estilos de la web.",
+      },
+      angular: {
+        nombre: "Angular",
+        descripcion: "Framework para aplicaciones web.",
+      },
+      python: {
+        nombre: "Python",
+        descripcion: "Scripts, análisis de datos y backend.",
+      },
+      flask: {
+        nombre: "Flask",
+        descripcion: "Microframework web en Python.",
+      },
+      node: {
+        nombre: "Node.js",
+        descripcion: "JavaScript del lado del servidor.",
+      },
+      sql: {
+        nombre: "SQL / SQLite",
+        descripcion: "Bases de datos relacionales.",
+      },
+      pandas: {
+        nombre: "Pandas y NumPy",
+        descripcion: "Análisis y manipulación de datos.",
+      },
+      sklearn: {
+        nombre: "scikit-learn",
+        descripcion: "Machine learning en Python.",
+      },
+      git: {
+        nombre: "Git y GitHub",
+        descripcion: "Control de versiones y colaboración.",
+      },
       javascript: {
         nombre: "JavaScript",
         descripcion: "Lenguaje base del desarrollo web.",
@@ -47,7 +105,7 @@ const traducciones = {
       },
       ingles: {
         nombre: "Inglés",
-        descripcion: "Dominio del idioma para comunicación global.",
+        descripcion: "Nivel B2 (intermedio alto) para comunicación global.",
       },
       vm: {
         nombre: "VirtualBox / VMs",
@@ -58,11 +116,49 @@ const traducciones = {
   en: {
     categorias: {
       tecnologias: "🛠️ Technologies",
+      backend: "🧠 Backend & Data",
+      herramientas: "🧰 Tools",
       diseno: "🎨 Design & UX",
       productividad: "📋 Productivity",
       extras: "✨ Extra Magic",
     },
     habilidades: {
+      html: {
+        nombre: "HTML & CSS",
+        descripcion: "Web structure and styling.",
+      },
+      angular: {
+        nombre: "Angular",
+        descripcion: "Framework for web applications.",
+      },
+      python: {
+        nombre: "Python",
+        descripcion: "Scripting, data analysis and backend.",
+      },
+      flask: {
+        nombre: "Flask",
+        descripcion: "Python web microframework.",
+      },
+      node: {
+        nombre: "Node.js",
+        descripcion: "Server-side JavaScript.",
+      },
+      sql: {
+        nombre: "SQL / SQLite",
+        descripcion: "Relational databases.",
+      },
+      pandas: {
+        nombre: "Pandas & NumPy",
+        descripcion: "Data analysis and manipulation.",
+      },
+      sklearn: {
+        nombre: "scikit-learn",
+        descripcion: "Machine learning in Python.",
+      },
+      git: {
+        nombre: "Git & GitHub",
+        descripcion: "Version control and collaboration.",
+      },
       javascript: {
         nombre: "JavaScript",
         descripcion: "Core language for web development.",
@@ -97,7 +193,7 @@ const traducciones = {
       },
       ingles: {
         nombre: "English",
-        descripcion: "Language proficiency for global communication.",
+        descripcion: "B2 level (upper-intermediate) for global communication.",
       },
       vm: {
         nombre: "VirtualBox / VMs",
@@ -108,11 +204,49 @@ const traducciones = {
   pt: {
     categorias: {
       tecnologias: "🛠️ Tecnologias",
+      backend: "🧠 Backend e dados",
+      herramientas: "🧰 Ferramentas",
       diseno: "🎨 Design e UX",
       productividad: "📋 Produtividade",
       extras: "✨ Extras mágicos",
     },
     habilidades: {
+      html: {
+        nombre: "HTML e CSS",
+        descripcion: "Estrutura e estilos da web.",
+      },
+      angular: {
+        nombre: "Angular",
+        descripcion: "Framework para aplicações web.",
+      },
+      python: {
+        nombre: "Python",
+        descripcion: "Scripts, análise de dados e backend.",
+      },
+      flask: {
+        nombre: "Flask",
+        descripcion: "Microframework web em Python.",
+      },
+      node: {
+        nombre: "Node.js",
+        descripcion: "JavaScript no servidor.",
+      },
+      sql: {
+        nombre: "SQL / SQLite",
+        descripcion: "Bancos de dados relacionais.",
+      },
+      pandas: {
+        nombre: "Pandas e NumPy",
+        descripcion: "Análise e manipulação de dados.",
+      },
+      sklearn: {
+        nombre: "scikit-learn",
+        descripcion: "Machine learning em Python.",
+      },
+      git: {
+        nombre: "Git e GitHub",
+        descripcion: "Controle de versão e colaboração.",
+      },
       javascript: {
         nombre: "JavaScript",
         descripcion: "Linguagem base do desenvolvimento web.",
@@ -147,7 +281,7 @@ const traducciones = {
       },
       ingles: {
         nombre: "Inglês",
-        descripcion: "Domínio do idioma para comunicação global.",
+        descripcion: "Nível B2 (intermediário alto) para comunicação global.",
       },
       vm: {
         nombre: "VirtualBox / VMs",
@@ -158,17 +292,27 @@ const traducciones = {
 };
 
 // 🌟 Íconos por habilidad
+// Todos los íconos vienen de react-icons (van dentro del bundle, sin enlaces externos)
 const iconos = {
-  javascript: "https://cdn-icons-png.flaticon.com/128/16511/16511135.png",
-  react: "https://cdn-icons-png.flaticon.com/128/3393/3393920.png",
-  tailwind: "https://www.svgrepo.com/show/333609/tailwind-css.svg",
-  figma: "https://cdn-icons-png.flaticon.com/128/5968/5968704.png",
-  photoshop: "https://www.svgrepo.com/show/31529/photoshop.svg",
-  office: "https://cdn-icons-png.flaticon.com/128/1/1816.png",
-  notion: "https://cdn-icons-png.flaticon.com/128/5968/5968885.png",
-  trello: "https://www.svgrepo.com/show/394518/trello.svg",
-  ingles: "https://www.svgrepo.com/show/532170/english-to-chinese.svg",
-  vm: "https://www.svgrepo.com/show/448309/azure-vms.svg",
+  html: { Icon: SiHtml5, color: "#E34F26" },
+  javascript: { Icon: SiJavascript, color: "#F7DF1E" },
+  react: { Icon: SiReact, color: "#61DAFB" },
+  angular: { Icon: SiAngular, color: "#DD0031" },
+  tailwind: { Icon: SiTailwindcss, color: "#38BDF8" },
+  python: { Icon: SiPython, color: "#FFD43B" },
+  flask: { Icon: SiFlask, color: "#F8F5F1" },
+  node: { Icon: SiNodedotjs, color: "#5FA04E" },
+  sql: { Icon: SiSqlite, color: "#7FB6E0" },
+  pandas: { Icon: SiPandas, color: "#C3B2E4" },
+  sklearn: { Icon: SiScikitlearn, color: "#F7931E" },
+  git: { Icon: SiGit, color: "#F05032" },
+  figma: { Icon: SiFigma, color: "#F24E1E" },
+  photoshop: { Icon: SiAdobephotoshop, color: "#31A8FF" },
+  office: { Icon: FaMicrosoft, color: "#EB3C00" },
+  notion: { Icon: SiNotion, color: "#F8F5F1" },
+  trello: { Icon: SiTrello, color: "#0079BF" },
+  ingles: { Icon: FaLanguage, color: "#BDE3D0" },
+  vm: { Icon: SiVirtualbox, color: "#8699C7" },
 };
 
 const HadasSkills = ({ lang }) => {
@@ -177,11 +321,15 @@ const HadasSkills = ({ lang }) => {
   const categorias = [
     {
       titulo: t.categorias.tecnologias,
-      claves: ["javascript", "react", "tailwind"],
+      claves: ["html", "javascript", "react", "angular", "tailwind"],
     },
     {
-      titulo: t.categorias.diseno,
-      claves: ["figma", "photoshop"],
+      titulo: t.categorias.backend,
+      claves: ["python", "flask", "node", "sql", "pandas", "sklearn"],
+    },
+    {
+      titulo: t.categorias.herramientas,
+      claves: ["git", "figma", "photoshop"],
     },
     {
       titulo: t.categorias.productividad,
@@ -232,12 +380,13 @@ const HadasSkills = ({ lang }) => {
                       transition={{ duration: 2.5, repeat: Infinity }}
                     />
 
-                    <motion.img
-                      src={icono}
-                      alt={nombre}
-                      className="w-[50px] h-[50px] object-contain transition-transform duration-300 drop-shadow-[0_0_8px_#F0BFD3] group-hover:drop-shadow-[0_0_16px_#F0BFD3]/90"
+                    <motion.div
+                      className="w-[50px] h-[50px] flex items-center justify-center drop-shadow-[0_0_8px_#F0BFD3]"
                       whileHover={{ rotate: [0, -6, 6, 0], scale: 1.2 }}
-                    />
+                      aria-hidden="true"
+                    >
+                      {React.createElement(icono.Icon, { size: 40, color: icono.color })}
+                    </motion.div>
 
                     <span className="mt-2 text-xs font-semibold opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                       {nombre}

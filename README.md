@@ -52,6 +52,7 @@ The site is a visual journey inspired by cinematic and magical worlds, with one 
 - 🌌 **Sky:** about me
 - 🌊 **Sea:** personal projects
 - 🌿 **Earth:** skills
+- 🌱 **Roots:** education and courses
 - ❄️ **Ice Court:** contact
 
 Built with **React, Vite, and Tailwind CSS**, with custom animations and a responsive layout.
@@ -128,7 +129,7 @@ Me gusta combinar diseño y código para crear interfaces claras, funcionales y 
   <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2xudXA3eW1oMDJ5N3RvYjAyOGZqeDgzc3AzbHdjZGlicWd3ejlzdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13cqvMx0yH3eko/giphy.gif" alt="Animación del portafolio" width="400" />
 </p>
 
-Un recorrido visual inspirado en mundos mágicos y cinematográficos: 🪐 Espacio (bienvenida), 🌌 Cielo (sobre mí), 🌊 Mar (proyectos), 🌿 Tierra (habilidades) y ❄️ Corte de Hielo (contacto). Hecho con React, Vite y Tailwind CSS.
+Un recorrido visual inspirado en mundos mágicos y cinematográficos: 🪐 Espacio (bienvenida), 🌌 Cielo (sobre mí), 🌊 Mar (proyectos), 🌿 Tierra (habilidades), 🌱 Raíces (formación y cursos) y ❄️ Corte de Hielo (contacto). Hecho con React, Vite y Tailwind CSS.
 
 ### 🌍 Idiomas
 

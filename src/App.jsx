@@ -12,11 +12,12 @@ import {
 } from "@/components";
 
 import Testimonios from "@/pages/Testimonios";
-import { usePreloadImages, useTranslate } from "@/hooks";
+import { usePreloadImages } from "@/hooks";
 
 import Espacio from "@/sections/Espacio";
 import Cielo from "@/sections/Cielo";
 import Tierra from "@/sections/Tierra";
+import Raices from "@/sections/Raices";
 import Mar from "@/sections/Mar";
 import Inframundo from "@/sections/Inframundo";
 import CorteHielo from "@/sections/CorteHielo";
@@ -26,7 +27,6 @@ import "./App.css";
 function App() {
   usePreloadImages();
   const [lang, setLang] = useState("es");
-  const t = useTranslate(lang); // Puedes usarlo si necesitas traducir en App.jsx
 
   return (
     <div className="relative font-quicksand scroll-smooth bg-[#0C0A12] text-[#F8F5F1]">
@@ -36,8 +36,15 @@ function App() {
       <Preloader />
       <CursorMagico />
       <Seo
+        lang={lang}
         title="Estefany Mar | Frontend Developer"
-        description="Portafolio mágico de Estefany Mar"
+        description={
+          {
+            es: "Portafolio de Estefany Mar: desarrolladora frontend y full-stack junior en Bogotá. Proyectos con React, Angular, Flask y Python.",
+            en: "Portfolio of Estefany Mar: junior frontend and full-stack developer in Bogotá. Projects with React, Angular, Flask and Python.",
+            pt: "Portfólio de Estefany Mar: desenvolvedora frontend e full-stack júnior em Bogotá. Projetos com React, Angular, Flask e Python.",
+          }[lang]
+        }
       />
 
       <Routes>
@@ -55,6 +62,9 @@ function App() {
               </section>
               <section id="tierra">
                 <Tierra lang={lang} />
+              </section>
+              <section id="raices">
+                <Raices lang={lang} />
               </section>
               <section id="mar">
                 <Mar lang={lang} />

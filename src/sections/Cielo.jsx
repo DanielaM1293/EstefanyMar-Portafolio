@@ -12,21 +12,21 @@ const Cielo = ({ lang }) => {
     es: {
       titulo: "Sobre mí",
       descripcion:
-        "Soy Estefany, exploradora de mundos creativos. Me encanta contar historias visuales y transformar ideas en experiencias llenas de magia y detalle. ✨",
+        "Soy Estefany, tecnóloga en Análisis y Desarrollo de Software y estudiante de Ingeniería de Software. Creo interfaces visuales y funcionales con React, y también trabajo backend y análisis de datos. Freelance desde 2023, completé CS50x de Harvard. ✨",
       cvEsp: "CV en Español",
       cvEng: "CV en Inglés",
     },
     en: {
       titulo: "About Me",
       descripcion:
-        "I'm Estefany, an explorer of creative worlds. I love telling visual stories and turning ideas into magical, detailed experiences. ✨",
+        "I'm Estefany, a Software Analysis and Development technologist studying Software Engineering. I build visual, functional interfaces with React, and I also work on backend and data analysis. Freelancing since 2023, and I completed Harvard's CS50x. ✨",
       cvEsp: "CV in Spanish",
       cvEng: "CV in English",
     },
     pt: {
       titulo: "Sobre mim",
       descripcion:
-        "Sou Estefany, uma exploradora de mundos criativos. Adoro contar histórias visuais e transformar ideias em experiências cheias de magia e detalhes. ✨",
+        "Sou Estefany, tecnóloga em Análise e Desenvolvimento de Software e estudante de Engenharia de Software. Crio interfaces visuais e funcionais com React e também trabalho com backend e análise de dados. Freelancer desde 2023, concluí o CS50x de Harvard. ✨",
       cvEsp: "CV em Espanhol",
       cvEng: "CV em Inglês",
     },
@@ -98,7 +98,7 @@ const Cielo = ({ lang }) => {
 
   {/* Botón CV Español */}
   <a
-    href="/cv/CV_EstefanyMar_ES.pdf"
+    href="Downloads\CV_Estefany_Martinez_Virtual_Assistant_EN.pdf"
     target="_blank"
     rel="noopener noreferrer"
     className="relative group px-7 py-3 rounded-full border-2 border-aurora text-marfil font-fraunces text-lg shadow-lg backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300 overflow-hidden"
@@ -128,7 +128,7 @@ const Cielo = ({ lang }) => {
 
   {/* Botón CV Inglés */}
   <a
-    href="/cv/CV_EstefanyMar_EN.pdf"
+    href="Downloads\CV_Estefany_Martinez_Virtual_Assistant_EN.pdf"
     target="_blank"
     rel="noopener noreferrer"
     className="relative group px-7 py-3 rounded-full border-2 border-universo text-marfil font-fraunces text-lg shadow-lg backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300 overflow-hidden"

@@ -7,6 +7,7 @@ import {
   Mail,
   MessageCircleHeart,
   Sparkles,
+  GraduationCap,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -16,6 +17,7 @@ const translations = {
     inicio: "Inicio",
     sobreMi: "Sobre mí",
     habilidades: "Habilidades",
+    formacion: "Formación",
     proyectos: "Proyectos",
     contacto: "Contacto",
     github: "GitHub",
@@ -25,6 +27,7 @@ const translations = {
     inicio: "Home",
     sobreMi: "About Me",
     habilidades: "Skills",
+    formacion: "Education",
     proyectos: "Projects",
     contacto: "Contact",
     github: "GitHub",
@@ -34,6 +37,7 @@ const translations = {
     inicio: "Início",
     sobreMi: "Sobre mim",
     habilidades: "Habilidades",
+    formacion: "Formação",
     proyectos: "Projetos",
     contacto: "Contato",
     github: "GitHub",
@@ -48,6 +52,7 @@ const Navbar = ({ lang = "es" }) => {
     { icon: <Home />, label: t.inicio, href: "#espacio" },
     { icon: <Sparkles />, label: t.sobreMi, href: "#cielo" },
     { icon: <Settings />, label: t.habilidades, href: "#tierra" },
+    { icon: <GraduationCap />, label: t.formacion, href: "#raices" },
     { icon: <Code2 />, label: t.proyectos, href: "#mar" },
     { icon: <Mail />, label: t.contacto, href: "#cortehielo" },
     {

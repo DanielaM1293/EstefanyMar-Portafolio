@@ -13,6 +13,7 @@ const CorteDeHielo = ({ lang }) => {
   const [showParticles, setShowParticles] = useState(false);
   const [showGlow, setShowGlow] = useState(false);
   const [buttonGlowing, setButtonGlowing] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | ok | error
 
   const translations = {
     es: {
@@ -21,6 +22,9 @@ const CorteDeHielo = ({ lang }) => {
       correo: "Correo",
       mensaje: "Mensaje",
       enviar: "Enviar Mensaje",
+      ok: "¡Mensaje enviado! Te responderé pronto. ✨",
+      error: "No se pudo enviar. Inténtalo de nuevo o escríbeme por correo.",
+      enviando: "Enviando…",
     },
     en: {
       titulo: "Send me a message",
@@ -28,6 +32,9 @@ const CorteDeHielo = ({ lang }) => {
       correo: "Email",
       mensaje: "Message",
       enviar: "Send Message",
+      ok: "Message sent! I will get back to you soon. ✨",
+      error: "Could not send. Please try again or email me directly.",
+      enviando: "Sending…",
     },
     pt: {
       titulo: "Envie-me uma mensagem",
@@ -35,6 +42,9 @@ const CorteDeHielo = ({ lang }) => {
       correo: "Email",
       mensaje: "Mensagem",
       enviar: "Enviar Mensagem",
+      ok: "Mensagem enviada! Responderei em breve. ✨",
+      error: "Não foi possível enviar. Tente novamente ou me escreva por e-mail.",
+      enviando: "Enviando…",
     },
   };
 
@@ -46,9 +56,10 @@ const CorteDeHielo = ({ lang }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus("sending");
 
     try {
-      await fetch("https://formspree.io/f/xeokbydj", {
+      const res = await fetch("https://formspree.io/f/xeokbydj", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +68,11 @@ const CorteDeHielo = ({ lang }) => {
         body: JSON.stringify(formData),
       });
 
+      // fetch no lanza error en respuestas 4xx/5xx: hay que revisar res.ok
+      if (!res.ok) throw new Error(`Formspree respondió ${res.status}`);
+
       setFormData({ name: "", email: "", message: "" });
+      setStatus("ok");
 
       // Activar animaciones mágicas ✨
       setShowParticles(true);
@@ -72,6 +87,7 @@ const CorteDeHielo = ({ lang }) => {
       }, 2000);
     } catch (error) {
       console.error("Error al enviar:", error);
+      setStatus("error");
     }
   };
 
@@ -104,6 +120,8 @@ const CorteDeHielo = ({ lang }) => {
           <input
             type="text"
             name="name"
+            aria-label={t.nombre}
+            autoComplete="name"
             placeholder={t.nombre}
             value={formData.name}
             onChange={handleChange}
@@ -113,6 +131,8 @@ const CorteDeHielo = ({ lang }) => {
           <input
             type="email"
             name="email"
+            aria-label={t.correo}
+            autoComplete="email"
             placeholder={t.correo}
             value={formData.email}
             onChange={handleChange}
@@ -122,6 +142,7 @@ const CorteDeHielo = ({ lang }) => {
           <textarea
             name="message"
             rows="4"
+            aria-label={t.mensaje}
             placeholder={t.mensaje}
             value={formData.message}
             onChange={handleChange}
@@ -133,22 +154,28 @@ const CorteDeHielo = ({ lang }) => {
             whileTap={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
             type="submit"
-            className={`bg-blue-200/20 text-white font-bold py-3 rounded-md border border-blue-100/20 transition ${
+            disabled={status === "sending"}
+            className={`disabled:opacity-60 bg-blue-200/20 text-white font-bold py-3 rounded-md border border-blue-100/20 transition ${
               buttonGlowing ? "animate-button-glow" : "hover:bg-blue-100/10"
             }`}
           >
-            {t.enviar}
+            {status === "sending" ? t.enviando : t.enviar}
           </motion.button>
+
+          <p role="status" aria-live="polite" className="text-center text-sm min-h-[1.25rem]">
+            {status === "ok" && <span className="text-rocio">{t.ok}</span>}
+            {status === "error" && <span className="text-aurora">{t.error}</span>}
+          </p>
         </form>
 
         <div className="mt-6 flex justify-center gap-6 text-2xl text-white">
-          <a href="https://github.com/DanielaM1293" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/DanielaM1293" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <FaGithub className="hover:text-blue-300 transition" />
           </a>
-          <a href="https://www.linkedin.com/in/estefany-daniela-mart%C3%ADnez-ni%C3%B1o-b0832b209/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/estefany-daniela-mart%C3%ADnez-ni%C3%B1o-b0832b209/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedin className="hover:text-blue-300 transition" />
           </a>
-          <a href="mailto:estefanydanielamartineznino@gmail.com">
+          <a href="mailto:estefanydanielamartineznino@gmail.com" aria-label="Email">
             <FaEnvelope className="hover:text-blue-300 transition" />
           </a>
         </div>
