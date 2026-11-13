@@ -73,7 +73,7 @@ const Error404 = ({ lang = "es" }) => {
 
         <button
           onClick={() => navigate("/")}
-          className="mt-6 px-6 py-3 bg-aurora hover:bg-hover text-fondo font-semibold rounded-full shadow-lg transition duration-300"
+          className="mt-6 px-6 py-3 bg-aurora hover:bg-lavanda text-[#0C0A12] font-semibold rounded-full shadow-lg transition duration-300"
         >
           {t.boton}
         </button>

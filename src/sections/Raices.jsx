@@ -4,62 +4,70 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import { education, educationTitle } from "@/data/education";
+import FondoPantalla from "@/components/ui/FondoPantalla";
+import FundidoSeccion from "@/components/ui/FundidoSeccion";
+import EncabezadoSeccion from "@/components/ui/EncabezadoSeccion";
+
+const etiquetas = { es: "Formación", en: "Education", pt: "Formação" };
 
 const Raices = ({ lang }) => {
   const t = educationTitle[lang] || educationTitle.es;
 
   return (
-    <section
-      className="relative w-full min-h-screen overflow-hidden bg-gradient-to-b from-[#0C0A12] via-[#101a17] to-[#0C1A2C] text-marfil flex flex-col items-center justify-center px-4 py-24"
-    >
-      {/* Brillo suave de fondo */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-rocio/10 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-lavanda/10 blur-3xl" />
-      </div>
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#0C0A12] text-marfil flex flex-col items-center px-5 md:px-16 lg:px-20 pt-28 pb-28">
+      {/* Bosque encantado de fondo (cubre toda la sección) */}
+      <FondoPantalla>
+        <img
+          src="/assets/bosque-encantado.webp"
+          alt=""
+          loading="lazy"
+          className="w-full h-full object-cover object-center"
+        />
+      </FondoPantalla>
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0C0A12]/70 via-[#0C0A12]/50 to-[#0C0A12]/80 pointer-events-none" />
+      <FundidoSeccion />
 
-      <motion.div
-        className="relative z-10 text-center max-w-2xl mb-12"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <h2 className="text-3xl md:text-5xl font-fraunces font-bold mb-4 text-rocio drop-shadow-[0_0_8px_#BDE3D0]">
-          {t.titulo}
-        </h2>
-        <p className="text-base md:text-lg font-quicksand text-marfil/90">{t.intro}</p>
-      </motion.div>
+      <EncabezadoSeccion etiqueta={etiquetas[lang] || etiquetas.es} titulo={t.titulo} intro={t.intro} className="mb-12" />
 
-      <ul className="relative z-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 max-w-6xl w-full">
+      <ul className="relative z-10 flex flex-wrap justify-center gap-4 sm:gap-5 max-w-6xl w-full">
         {education.map((item, i) => {
           const detalle = item.detalle[lang] ?? item.detalle.es;
           return (
             <motion.li
               key={item.id}
-              className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-5 shadow-lg
-                         hover:border-rocio/50 hover:shadow-[0_0_18px_#BDE3D0]/30 transition"
+              className="group flex gap-4 w-full md:w-[calc(50%-0.625rem)] xl:w-[calc(33.333%-0.85rem)] rounded-3xl border border-white/10 bg-[#0C0A12]/65 backdrop-blur-md p-5 shadow-xl
+                         hover:border-rocio/50 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(189,227,208,0.18)] transition duration-300"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
             >
-              <div className="flex items-start gap-3">
-                <span className="text-3xl leading-none" aria-hidden="true">
-                  {item.emoji}
-                </span>
-                <div className="text-left">
-                  <h3 className="font-fraunces font-bold text-lg leading-snug">
-                    {item.titulo[lang] || item.titulo.es}
-                  </h3>
-                  <p className="text-sm text-aurora mt-1">
+              <span
+                className="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-rocio/25 to-lavanda/25 border border-white/10 flex items-center justify-center text-2xl"
+                aria-hidden="true"
+              >
+                {item.emoji}
+              </span>
+
+              <div className="text-left min-w-0">
+                <h3 className="font-fraunces font-bold text-base sm:text-lg leading-snug">
+                  {item.titulo[lang] || item.titulo.es}
+                </h3>
+
+                <p className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+                  <span className="px-2.5 py-0.5 rounded-full bg-aurora/15 border border-aurora/40 text-aurora">
                     {item.lugar}
-                    {item.fecha ? ` · ${item.fecha}` : ""}
-                  </p>
-                  {detalle && (
-                    <p className="text-sm text-marfil/80 mt-2 leading-snug">{detalle}</p>
+                  </span>
+                  {item.fecha && (
+                    <span className="px-2.5 py-0.5 rounded-full bg-white/5 border border-white/15 text-marfil/80">
+                      {item.fecha}
+                    </span>
                   )}
-                </div>
+                </p>
+
+                {detalle && (
+                  <p className="mt-2 text-sm text-marfil/80 leading-snug">{detalle}</p>
+                )}
               </div>
             </motion.li>
           );

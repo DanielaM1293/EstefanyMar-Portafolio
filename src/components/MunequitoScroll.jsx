@@ -94,7 +94,7 @@ const MunequitoScroll = () => {
         ${leftSide ? "left-4 sm:left-6 md:left-8" : "right-4 sm:right-6 md:right-8"}
         bottom-20 sm:bottom-28 md:bottom-32
         w-12 sm:w-14 md:w-16
-        z-[60] pointer-events-none select-none
+        z-[60] pointer-events-none select-none hidden lg:block
       `}
     />
   );

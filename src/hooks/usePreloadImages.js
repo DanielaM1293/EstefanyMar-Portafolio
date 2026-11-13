@@ -3,8 +3,7 @@ import { useEffect } from "react";
 const usePreloadImages = () => {
   useEffect(() => {
     const imagesToPreload = [
-      "/assets/sanrio/alicia.jpg",
-      "/assets/android-chrome-192x192.png",
+            "/assets/android-chrome-192x192.png",
       "/assets/android-chrome-512x512.png",
       "/assets/apple-touch-icon.png",
       "/assets/arana.png",
@@ -12,7 +11,7 @@ const usePreloadImages = () => {
       "/assets/araña.png",
       "/assets/bolita.png",
       "/assets/bolitas.png",
-      "/assets/bosque-encantado.png",
+      "/assets/bosque-encantado.webp",
       "/assets/calabazas.gif",
       "/assets/Calcifer.ico",
       "/assets/Calcifer.png",
@@ -26,7 +25,7 @@ const usePreloadImages = () => {
       "/assets/favicon.ico",
       "/assets/favicon-16x16.png",
       "/assets/favicon-32x32.png",
-      "/assets/fondocontacto.png",
+      "/assets/fondocontacto.webp",
       "/assets/fondotierra.jpg",
       "/assets/grupo_almanza_logo.png",
       "/assets/jack.gif",
@@ -46,7 +45,7 @@ const usePreloadImages = () => {
       "/assets/ponyoagua.png",
       "/assets/porco.png",
       "/assets/ranlogo.jpg",
-      "/assets/sendero.png",
+      "/assets/sendero.webp",
       "/assets/Studio Ghibli Movie GIF.gif",
       "/assets/totoro.png",
       "/assets/totoros.png",
@@ -68,10 +67,23 @@ const usePreloadImages = () => {
       "/assets/sapo.png",
     ];
 
-    imagesToPreload.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
+    // Se precargan DESPUÉS de que la página ya cargó y el navegador está libre,
+    // para no competir con lo que la persona ve primero.
+    const precargar = () =>
+      imagesToPreload.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+
+    const cuandoLibre = () =>
+      "requestIdleCallback" in window
+        ? window.requestIdleCallback(precargar, { timeout: 4000 })
+        : setTimeout(precargar, 2000);
+
+    if (document.readyState === "complete") cuandoLibre();
+    else window.addEventListener("load", cuandoLibre, { once: true });
+
+    return () => window.removeEventListener("load", cuandoLibre);
   }, []);
 };
 

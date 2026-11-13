@@ -11,10 +11,11 @@ const BotonWhatsApp = () => {
       
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-acento text-fondo p-4 rounded-full shadow-lg hover:bg-hover transition-colors duration-300 animate-bounce"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[#25D366] text-white p-3 sm:p-4 rounded-full shadow-lg hover:bg-[#1ebe5b] transition-colors duration-300"
       title="Envíame un mensaje por WhatsApp"
+      aria-label="WhatsApp"
     >
-      <FaWhatsapp size={28} />
+      <FaWhatsapp size={26} />
     </a>
   );
 };

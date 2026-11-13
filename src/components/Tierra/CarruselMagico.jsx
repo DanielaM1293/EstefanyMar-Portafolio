@@ -1,49 +1,40 @@
 // src/components/Tierra/CarruselMagico.jsx
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// Fondo con fundido cruzado entre imágenes. Sin librerías externas:
+// ocupa siempre el tamaño de la pantalla y cubre toda la sección.
+import React, { useEffect, useState } from "react";
+import FondoPantalla from "@/components/ui/FondoPantalla";
 
-const imagenes = [
-  "/assets/sendero.png",
-  "/assets/alicia.jpg",
-  "/assets/fondotierra.jpg",
-];
+const imagenes = ["/assets/sendero.webp", "/assets/fondotierra.jpg"];
 
 const CarruselMagico = () => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 1200,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    fade: true,
-    pauseOnHover: false,
-    cssEase: "ease-in-out",
-  };
+  const [actual, setActual] = useState(0);
+
+  useEffect(() => {
+    const reducir = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reducir) return;
+    const id = setInterval(() => setActual((i) => (i + 1) % imagenes.length), 7000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-<div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden">
-  <Slider {...settings}>
-    {imagenes.map((src, i) => (
-      <div key={i} className="w-full h-full">
-        <img
-          src={src}
-          alt={`Slide ${i}`}
-          className="w-full h-full object-cover object-center"
-        />
-      </div>
-    ))}
-  </Slider>
+    <>
+      <FondoPantalla>
+        {imagenes.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            loading={i === 0 ? "eager" : "lazy"}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-[1800ms] ease-in-out ${
+              i === actual ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+      </FondoPantalla>
 
-  {/* Filtro oscuro encima */}
-  <div className="absolute inset-0 bg-[#0C0A12]/60 backdrop-blur-sm pointer-events-none" />
-</div>
-
-
+      {/* Capa oscura para que el texto siempre se lea */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0C0A12]/60 via-[#0C0A12]/40 to-[#0C0A12]/75 pointer-events-none" />
+    </>
   );
 };
 

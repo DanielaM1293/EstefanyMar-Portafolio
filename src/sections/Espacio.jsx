@@ -7,8 +7,7 @@ const Espacio = ({ lang }) => {
 
   return (
     <section
-      id="espacio"
-      className="relative w-full h-screen bg-bosque text-marfil flex flex-col justify-center items-center text-center overflow-hidden"
+      className="relative w-full min-h-screen bg-bosque text-marfil flex flex-col justify-start items-center text-center overflow-hidden px-5 pt-[20vh] sm:pt-[22vh] pb-24"
     >
       {/* Cometas animados */}
       <Cometa
@@ -43,18 +42,18 @@ const Espacio = ({ lang }) => {
       <AuroraBoreal />
       <EstrellasFugaces />
       <SistemaSolar />
-       {/* Texto y contenido principal */}
-      <div className="z-20 relative">
-        <h1 className="text-4xl md:text-6xl font-bold font-fraunces animate-fadeInDown">
+      {/* Texto y contenido principal */}
+      <div className="z-20 relative max-w-3xl">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-fraunces leading-tight drop-shadow-[0_2px_18px_rgba(195,178,228,0.55)]">
           {t("saludo")}
         </h1>
-        <p className="text-lg md:text-2xl mt-4 font-quicksand max-w-xl mx-auto">
+        <p className="text-lg md:text-2xl mt-4 font-quicksand max-w-xl mx-auto text-marfil/90 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]">
           {t("bienvenida")}
         </p>
 
         <a
           href="#cielo"
-          className="mt-10 inline-block bg-acento text-fondo px-6 py-3 rounded-full shadow-lg hover:bg-hover transition transform hover:scale-105 font-quicksand"
+          className="mt-8 inline-flex items-center gap-2 bg-aurora text-[#0C0A12] font-semibold px-7 py-3 rounded-full shadow-[0_0_24px_rgba(232,169,190,0.55)] hover:bg-lavanda hover:shadow-[0_0_30px_rgba(195,178,228,0.7)] transition duration-300 transform hover:scale-105 font-quicksand"
         >
           {t("descubre")}
         </a>

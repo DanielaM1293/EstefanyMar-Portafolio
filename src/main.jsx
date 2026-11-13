@@ -6,10 +6,6 @@ import { HelmetProvider } from "react-helmet-async"; // ✅ Importar HelmetProvi
 import App from "./App.jsx";
 import "./index.css";
 
-// Estilos del carrusel
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <HelmetProvider> {/* ✅ Aquí empieza el proveedor */}

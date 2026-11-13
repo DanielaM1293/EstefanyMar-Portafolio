@@ -343,21 +343,21 @@ const HadasSkills = ({ lang }) => {
 
   return (
     <div className="relative z-10 w-full max-w-6xl mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         {categorias.map((grupo, i) => (
           <motion.div
             key={grupo.titulo}
-            className="flex flex-col items-center text-center font-quicksand text-marfil"
+            className="flex flex-col items-center text-center font-quicksand text-marfil rounded-3xl border border-white/10 bg-[#0C0A12]/55 backdrop-blur-md p-6 sm:p-7 shadow-xl hover:border-aurora/40 transition-colors md:last:odd:col-span-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
+            transition={{ duration: 0.6, delay: (i % 2) * 0.15 }}
           >
-            <h3 className="text-xl md:text-2xl font-bold text-aurora mb-6 drop-shadow-[0_0_5px_#E8A9BE]">
+            <h3 className="font-fraunces text-xl md:text-2xl font-bold text-aurora mb-6 drop-shadow-[0_0_5px_#E8A9BE]">
               {grupo.titulo}
             </h3>
 
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-7">
               {grupo.claves.map((clave) => {
                 const { nombre, descripcion } = t.habilidades[clave];
                 const icono = iconos[clave];

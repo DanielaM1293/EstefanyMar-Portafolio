@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
+import BarraProgreso from "@/components/ui/BarraProgreso";
 
 import {
   Navbar,
@@ -29,7 +31,9 @@ function App() {
   const [lang, setLang] = useState("es");
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="relative font-quicksand scroll-smooth bg-[#0C0A12] text-[#F8F5F1]">
+      <BarraProgreso />
       <LanguageSelector lang={lang} setLang={setLang} />
       <div className="scrollbar-thin scrollbar-thumb-aurora scrollbar-track-[#0C0A12]" />
       <MunequitoScroll />
@@ -54,33 +58,34 @@ function App() {
             <>
               <Navbar lang={lang} />
               <BotonWhatsApp />
-              <section id="espacio">
+              <div id="espacio">
                 <Espacio lang={lang} />
-              </section>
-              <section id="cielo">
+              </div>
+              <div id="cielo">
                 <Cielo lang={lang} />
-              </section>
-              <section id="tierra">
+              </div>
+              <div id="tierra">
                 <Tierra lang={lang} />
-              </section>
-              <section id="raices">
+              </div>
+              <div id="raices">
                 <Raices lang={lang} />
-              </section>
-              <section id="mar">
+              </div>
+              <div id="mar">
                 <Mar lang={lang} />
-              </section>
-              <section id="inframundo">
+              </div>
+              <div id="inframundo">
                 <Inframundo lang={lang} />
-              </section>
-              <section id="cortehielo">
+              </div>
+              <div id="cortehielo">
                 <CorteHielo lang={lang} />
-              </section>
+              </div>
             </>
           }
         />
         <Route path="/testimonios" element={<Testimonios lang={lang} />} />
       </Routes>
     </div>
+    </MotionConfig>
   );
 }
 

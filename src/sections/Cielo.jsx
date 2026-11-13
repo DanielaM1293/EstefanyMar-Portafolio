@@ -41,8 +41,7 @@ const Cielo = ({ lang }) => {
 
   return (
 <section
-  id="cielo"
-  className="relative w-full min-h-screen overflow-hidden text-marfil flex flex-col justify-center items-center text-center"
+  className="relative w-full min-h-screen overflow-hidden text-marfil flex flex-col justify-center items-center text-center px-5 py-28"
 >
   {/* Video de fondo en lugar del gif */}
   <video
@@ -83,22 +82,23 @@ const Cielo = ({ lang }) => {
 
       {/* Texto principal */}
       <motion.div
-        className="z-20 max-w-xl px-4 md:px-8"
+        className="z-20 max-w-2xl w-full rounded-3xl border border-white/15 bg-[#0C1A2C]/55 backdrop-blur-md shadow-2xl px-6 py-8 md:px-10 md:py-10"
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         transition={{ duration: 1.2 }}
       >
-        <h2 className="text-3xl md:text-5xl font-fraunces font-bold mb-4">{t.titulo}</h2>
-        <p className="text-base md:text-lg font-quicksand">{t.descripcion}</p>
+        <p className="inline-block mb-3 px-4 py-1 rounded-full border border-aurora/50 bg-black/30 text-[11px] sm:text-xs tracking-[0.25em] uppercase text-luciernaga">Estefany Mar</p>
+        <h2 className="text-3xl md:text-5xl font-fraunces font-bold mb-4 drop-shadow-[0_2px_14px_rgba(232,169,190,0.6)]">{t.titulo}</h2>
+        <p className="text-base md:text-lg font-quicksand leading-relaxed text-marfil/95">{t.descripcion}</p>
 
         {/* Botones mágicos */}
 <div className="mt-10 flex flex-col md:flex-row gap-6 justify-center items-center">
 
   {/* Botón CV Español */}
   <a
-    href="Downloads\CV_Estefany_Martinez_Virtual_Assistant_EN.pdf"
+    href="/cv/CV_EstefanyMar_ES.pdf"
     target="_blank"
     rel="noopener noreferrer"
     className="relative group px-7 py-3 rounded-full border-2 border-aurora text-marfil font-fraunces text-lg shadow-lg backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300 overflow-hidden"
@@ -128,7 +128,7 @@ const Cielo = ({ lang }) => {
 
   {/* Botón CV Inglés */}
   <a
-    href="Downloads\CV_Estefany_Martinez_Virtual_Assistant_EN.pdf"
+    href="/cv/CV_EstefanyMar_EN.pdf"
     target="_blank"
     rel="noopener noreferrer"
     className="relative group px-7 py-3 rounded-full border-2 border-universo text-marfil font-fraunces text-lg shadow-lg backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300 overflow-hidden"

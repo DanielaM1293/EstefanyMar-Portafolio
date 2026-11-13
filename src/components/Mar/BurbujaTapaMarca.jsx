@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 
 /** Burbuja mágica + caústica que tapa la marca de agua de TikTok */
 const BurbujaTapaMarca = () => (
-  <div className="absolute left-0 top-46 pointer-events-none z-30">
+  <div className="absolute inset-0 z-20 pointer-events-none [clip-path:inset(0)] hidden md:block">
+    {/* fija a la pantalla, igual que el video, para seguir tapando la marca de agua */}
+    <div className="fixed left-0 top-1/2 -translate-y-1/2">
 
 
     {/* Burbuja grande y luminosa */}
     <motion.div
-      className="absolute -left-[20px] top-[-100px] w-[220px] h-[220px]
+      className="absolute -left-[60px] top-[-110px] w-[220px] h-[220px]
                  sm:w-[240px] sm:h-[240px] lg:w-[260px] lg:h-[260px] rounded-full"
       animate={{ y: [0, -6, 0], scale: [1, 1.05, 1] }}
       transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
@@ -42,6 +44,7 @@ const BurbujaTapaMarca = () => (
         />
       ))}
     </motion.div>
+    </div>
   </div>
 );
 

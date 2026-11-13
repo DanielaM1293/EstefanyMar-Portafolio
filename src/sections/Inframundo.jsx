@@ -10,7 +10,6 @@ import Extras from "@/components/Inframundo/Extras";
 const Inframundo = () => {
   return (
     <section
-      id="inframundo"
 className="relative w-full min-h-[35vh] sm:min-h-[40vh] md:min-h-[45vh] lg:min-h-[50vh] xl:min-h-[55vh] bg-[#0A0A0C] overflow-hidden text-marfil"
     >
 {/* Fondo de video tipo collage */}

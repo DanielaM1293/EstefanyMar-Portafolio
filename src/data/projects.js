@@ -110,9 +110,9 @@ export const projects = [
 ];
 
 export const projectsTitle = {
-  es: "Mis Proyectos",
-  en: "My Projects",
-  pt: "Meus Projetos",
+  es: "Mis proyectos",
+  en: "My projects",
+  pt: "Meus projetos",
 };
 
 export const projectLinkLabels = {

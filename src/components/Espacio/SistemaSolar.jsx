@@ -4,7 +4,7 @@ import "./SistemaSolar.css"; // Asegúrate de tener este archivo CSS
 
 const SistemaSolar = () => {
   return (
-<div className="relative w-full h-[100vh] overflow-hidden">
+<div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
   {/* Fondo Galáctico difuminado */}
 <div className="absolute top-0 left-0 w-full h-full bg-andromeda bg-cover opacity-10" />
   <div className="absolute top-0 left-0 w-full h-full bg-bosque-sm z-6" />

@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: { xs: "360px" },
       /* 🎨 Paleta mágica */
       colors: {
         bosque:     "#0C0A12",

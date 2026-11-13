@@ -93,11 +93,10 @@ const CorteDeHielo = ({ lang }) => {
 
   return (
     <section
-      id="contacto"
-      className="relative w-full min-h-screen bg-[#0A0A0C] text-white overflow-hidden flex items-center justify-center px-4"
+      className="relative w-full min-h-screen bg-[#0A0A0C] text-white overflow-hidden flex items-center justify-center px-4 pt-28 pb-24"
     >
       <img
-        src="/assets/fondocontacto.png"
+        src="/assets/fondocontacto.webp"
         alt="Cueva helada"
         className="absolute inset-0 w-full h-full object-cover opacity-90 pointer-events-none z-0"
       />
